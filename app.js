@@ -1,11 +1,15 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const cors = require('cors')
 const Classes = require('./models/classes') 
 const hostname = 'localhost' 
 const port = 3000
 
 const app = express();
 const uri = "mongodb+srv://cferguson25:Password@cluster0.glue8uc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+
+
+app.use(cors());
 
 // This is testing stuff:
 /*
