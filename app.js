@@ -59,7 +59,7 @@ app.get("/classes", async function(req, res) {
 
  //NOT WORKING RIGHT NOW
 
- app.get("/:id", async function(req, res) {
+ app.get("/classes/:id", async function(req, res) {
     try {      
        // Use the ID in the URL path to find the class
        const Classes = await Classes.findById(req.params.id);
@@ -82,9 +82,11 @@ app.get("/classes", async function(req, res) {
        res.status(400).send(ex.message);
     }
  });
+
+
  
 //Update/PUT
-app.put("/:id", async function(req, res) {
+app.put("/classes/:id", async function(req, res) {
     // Class to update sent in body of request
     const classes = req.body;
  
@@ -104,7 +106,7 @@ app.put("/:id", async function(req, res) {
  });
 
  //Delete/DELETE
- app.delete("/:id", async function(req, res) {
+ app.delete("/classes/:id", async function(req, res) {
     try {
        const result = await Classes.deleteOne({ _id: req.params.id });
        if (result.deletedCount === 0) {
@@ -118,3 +120,6 @@ app.put("/:id", async function(req, res) {
        res.status(400).send(ex.message);
     }
  });
+
+
+ //changes
